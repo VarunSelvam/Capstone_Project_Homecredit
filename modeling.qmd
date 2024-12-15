@@ -1,5 +1,5 @@
 ---
-title: "Case Template"
+title: "Modeling"
 author: "Varun Selvam"
 format: 
   html:
