@@ -4,7 +4,7 @@ This is a group project that I completed for my capstone with 3 other colleagues
 
 ## Business Problem
 
-Homecredit is a company that gives loans to the underserved population. In other words, these are clients who do not have conventional or nonexistent credit histories. Homecredit however, like any conventional financial institution faces financial loss if loans are given to clients who cannot pay it back. The median financial loss for approving a client who cannot pay back a loan is **$24,412 dollars**. Furthermore, Homecredit must also deal with the issue of forgone revenue if it rejects clients who could pay back the loan. The median potential revenue loss for incorrectly rejecting a client is **$23,800 dollars**. Both of these outcomes are bad and severely impact Homecredit's ability to operate.
+Homecredit is a company that gives loans to the underserved population. In other words, these are clients who do not have conventional or nonexistent credit histories. Homecredit, however, like any conventional financial institution faces financial loss if loans are given to clients who cannot pay it back. The median financial loss for approving a client who cannot pay back a loan is **$24,412 dollars**. Furthermore, Homecredit must also deal with the issue of forgone revenue if it rejects clients who could pay back the loan. The median potential revenue loss for incorrectly rejecting a client is **$23,800 dollars**. Both of these outcomes are bad and severely impact Homecredit's ability to operate.
 
 ### Project Objective
 
@@ -12,9 +12,11 @@ The objective of this project is to minimize both of these losses which will ena
 
 ## Problem Solution
 
-Our group approached this problem by first conducting Exploratory Data Analysis individually. Afterwards, we reivewed our results and created a final clean dataset to use for training models. The next step was experimenting with various models like, Logistic Regression, Random Forest, XGboost, etc. After we were done doing hyperparameter tuning and experimenting with the various models, we selected the model with the best AUC Score. 
+We approached this problem by first conducting Exploratory Data Analysis individually. Afterwards, we reivewed our findings and created a  clean dataset to use for training models. The next step was experimenting with various models like Logisitic Regression, XGboost, etc. along with various hyperparameter tuning combinations. Afterwards, we selected the model with the best AUC Score. The final model selected was a Resampled XGboost model which had an AUC of .99 on the train set and .98 on the test set. The model also had an AUC of .72 on the holdout data provided by Kaggle. 
 
-The final model we selected was the Resampled XGboost model which had a AUC of .99 on the train set and .98 on the test set when we cross validated the model. The model had an AUC of .72 on the holdout data provided by Kaggle. In terms of dollars, this model helped reduce the median loss of approving a client who could not pay a loan to $number. This represents a _% compared to the previous median amount $number. 
+These results translated to a reduced median loss of **$24,363 dollars** for approving clients who could not pay back the loan. It also represents a 0.2% decrease compared to the previous median amount of **$24,412 dollars**. Although the reduction may seem small, it does cumulate over time, especially when compared to predicting with the majority class alone. For instance, utilizing the XGBoost model on the training set shows potential savings of **$63,495 dollars** overall. This value come purely from the $49 ($24,412 - $24,363) median loss reduction across all incorrectly approved applications, regardless of the count difference between XGboost and predicting with the majority.
+
+The model however did not decrease the potential median revenue loss from incorrectly rejecting a client, but it did not decrease it either. **In other words, the Resampled XGboost model decreased the loss from giving loans to clients who cannot pay back the loan while keeping potential median revenue loss constant.**
 
 ## My Contribution
 
@@ -24,7 +26,7 @@ I contributed to the project by training and evaluating the following models:
 * Naive Bayes
 * Random Forest
 
-I also assisted with training the Random Forest and XGboost Models that we did as a group. I also additionally assisted with submitting the model predictions to Kaggle. Finally, I also performed Outlier Analysis, Feature Engineering, Data Preparation. For instance, I created a variable called `House_Attribute_Low_Variance` that combined all the housing related variables that had low variance into one column. I also helepd with one-hot encoding several numeric variables that should have been categorical like `FLAG_DOCUMENT_3` which is just a binary variable.
+I also assisted with training the Random Forest and XGboost Models that we did as a group. I also additionally assisted with submitting the model predictions to Kaggle. Finally, I also performed Outlier Analysis, Feature Engineering, Data Preparation. For instance, I created a variable called `House_Attribute_Low_Variance` that combined all the housing related variables that had low variance into one column. I also helepd with one-hot encoding several numeric variables that should have been categorical like `FLAG_DOCUMENT_3` which is just a binary variable. (Please see the modelling.qmd and modelling.pdf for my specific contributions to the modelling process.)
 
 ## Difficulties Encountered
 
